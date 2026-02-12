@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.10
+        python-version: "3.10"
 
     # 3. Install dependencies
     - name: Install dependencies
@@ -28,7 +28,7 @@ jobs:
         pip install -r requirements.txt
 
     # 4. Lint code
-    - name: Lint code with flake8
+    - name: Lint with flake8
       run: flake8 .
 
     # 5. Run unit tests
@@ -39,9 +39,6 @@ jobs:
     - name: Build zip artifact
       run: zip -r flask_app.zip .
 
-    # 7. Upload artifact
+    # 7. Upload artifact (FIXED VERSION)
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: flask-app
-        path: flask_app.zip
+      uses: actions/upload-artifact@v
