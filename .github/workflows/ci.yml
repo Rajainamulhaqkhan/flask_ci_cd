@@ -36,3 +36,9 @@ jobs:
 
     - name: Build artifact
       run: zip -r flask_app.zip .
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: flask-app
+        path: flask_app.zip
